@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tree Coin - The Future of Our Planet</title>
+    <style>
+        /* General Reset and Basic Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: url('background.jpg') no-repeat center center/cover;
+            height: 100vh;
+            text-align: center;
+            color: white;
+            padding-top: 50px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .cta-buttons {
+            margin-top: 20px;
+        }
+
+        .cta-buttons a {
+            padding: 15px 30px;
+            background-color: #00b300;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            margin: 10px;
+        }
+
+        /* About Section */
+        .about {
+            padding: 60px 30px;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* Presale Section */
+        .presale {
+            background-color: #f9f9f9;
+            padding: 60px 30px;
+            text-align: center;
+        }
+
+        .presale h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .presale p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .countdown {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        /* Impact Section */
+        .impact {
+            padding: 60px 30px;
+            text-align: center;
+            background-color: #e0f7fa;
+        }
+
+        .impact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .impact p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 30px;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Invest in the Future of Our Environment, Humanity, and the World</h1>
+        <div class="cta-buttons">
+            <a href="#presale">Buy Tree Coin</a>
+            <a href="#about">Learn More</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2>About Tree Coin</h2>
+        <p>Tree Coin ($TREE) is built on The Open Network (TON), the fastest blockchain in the world. Tree Coin is
+            designed to help the planet and support the International Tree Fund (ITF) by burning tokens weekly and
+            donating the corresponding USDT to ITF to help fund global reforestation efforts.</p>
+    </section>
+
+    <!-- Presale Section -->
+    <section class="presale" id="presale">
+        <h2>Tree Coin Presale</h2>
+        <p>The presale for Tree Coin ($TREE) will begin on March 2nd at 0:00 AM ACST. During the presale, 1 TREE will be
+            available for 0.1 USDT.</p>
+        <div class="countdown" id="countdown"></div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="impact">
+        <h2>Making a Difference</h2>
+        <p>Every TREE token you hold helps fund reforestation efforts and environmental sustainability through donations
+            to the International Tree Fund.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Tree Coin. All rights reserved.</p>
+        <p><a href="https://ton.org" target="_blank">The Open Network (TON)</a> | <a
+                href="https://www.internationaltreefoundation.org" target="_blank">International Tree Fund</a></p>
+    </footer>
+
+    <!-- JavaScript for Countdown -->
+    <script>
+        // Countdown to Presale (March 2nd, 0:00 AM ACST)
+        function updateCountdown() {
+            const targetDate = new Date('March 2, 2025 00:00:00 GMT+0930'); // ACST
+            const currentDate = new Date();
+            const timeDifference = targetDate - currentDate;
+
+            if (timeDifference <= 0) {
+                document.getElementById('countdown').innerText = 'The presale has begun!';
+                return;
+            }
+
+            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+            document.getElementById('countdown').innerText = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+
+</body>
+
+</html>
