@@ -13,8 +13,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
+
     <style>
-        /* General Reset and Basic Styles */
+        /* General Reset */
         * {
             margin: 0;
             padding: 0;
@@ -29,11 +30,53 @@
             overflow-x: hidden;
         }
 
-        /* Utility Classes */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
+        /* Header with Logo */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 0;
+            background-color: rgba(255, 255, 255, 0.9);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header img {
+            height: 50px;
+            animation: fadeInDown 1s ease-in-out;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('background.jpg') no-repeat center center/cover;
+            height: 85vh;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
             padding: 0 30px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 800px;
+        }
+
+        .cta-buttons {
+            margin-top: 30px;
         }
 
         .btn {
@@ -44,112 +87,19 @@
             text-decoration: none;
             font-weight: 500;
             border-radius: 8px;
-            transition: background-color 0.3s ease;
+            transition: background 0.3s ease;
+            animation: fadeInUp 1.5s ease-in-out;
         }
 
         .btn:hover {
-            background-color: #27ae60;
-        }
-
-        .section-title {
-            font-size: 2.8rem;
-            font-weight: 600;
-            text-align: center;
-            margin-bottom: 40px;
-            color: #2c3e50;
-        }
-
-        /* Hero Section */
-        .hero {
-            position: relative;
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('background.jpg') no-repeat center center/cover;
-            height: 85vh;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 30px;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-        }
-
-        .hero p {
-            font-size: 1.4rem;
-            margin-bottom: 30px;
-            max-width: 800px;
-        }
-
-        .cta-buttons {
-            margin-top: 30px;
-        }
-
-        .cta-buttons a {
-            margin: 0 15px;
-        }
-
-        /* About Section */
-        .about {
-            padding: 80px 0;
-            background-color: #f9f9f9;
-        }
-
-        .about .container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .about-content {
-            flex: 1;
-            padding-right: 50px;
-            text-align: left;
-        }
-
-        .about-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: #2c3e50;
-            text-align: left;
-        }
-
-        .about-content p {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            margin-bottom: 20px;
-            color: #555;
-        }
-
-        .about-image {
-            flex: 1;
-        }
-
-        .about-image img {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background: #27ae60;
         }
 
         /* Presale Section */
         .presale {
-            background-color: #e8f5e9;
             padding: 80px 0;
-        }
-
-        .presale-content {
             text-align: center;
-        }
-
-        .presale-content p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            color: #555;
+            background-color: #e8f5e9;
         }
 
         .countdown {
@@ -157,22 +107,70 @@
             font-weight: 600;
             color: #2ecc71;
             margin-bottom: 30px;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
 
-        /* Impact Section */
-        .impact {
-            padding: 80px 0;
+        /* Progress Bar */
+        .progress-container {
+            background: #ccc;
+            border-radius: 20px;
+            width: 80%;
+            height: 30px;
+            margin: 20px auto;
+            position: relative;
         }
 
-        .impact-content {
-            text-align: center;
+        .progress-bar {
+            background: #2ecc71;
+            height: 100%;
+            width: 0%;
+            border-radius: 20px;
+            transition: width 1s ease-in-out;
         }
 
-        .impact-content p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            color: #555;
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                transform: translateY(-30px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
         }
 
         /* Footer */
@@ -193,100 +191,33 @@
         .footer a:hover {
             color: white;
         }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 3rem;
-            }
-
-            .hero p {
-                font-size: 1.2rem;
-            }
-
-            .container {
-                padding: 0 20px;
-            }
-
-            .about .container {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .about-content {
-                padding-right: 0;
-                margin-bottom: 30px;
-                text-align: center;
-            }
-
-            .about-content h2 {
-                text-align: center;
-            }
-        }
     </style>
 </head>
 
 <body>
 
+    <!-- Header -->
+    <header class="header">
+        <img src="logo.png" alt="Tree Coin Logo">
+    </header>
+
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
-            <h1>Invest in the Future of Our Environment, Humanity, and the World</h1>
-            <p>Tree Coin ($TREE) is a revolutionary cryptocurrency built on The Open Network (TON), dedicated to
-                supporting global reforestation and environmental sustainability. Join us in making a real-world
-                impact.</p>
-            <div class="cta-buttons">
-                <a href="#presale" class="btn">Buy Tree Coin</a>
-                <a href="#about" class="btn">Learn More</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="about-content">
-                <h2 class="section-title">About Tree Coin</h2>
-                <p>Tree Coin ($TREE) is built on The Open Network (TON), the fastest blockchain in the world. Tree Coin
-                    is designed to help the planet and support the International Tree Foundatoin (ITF) by burning tokens
-                    weekly and donating the corresponding USDT to ITF to help fund global reforestation efforts.</p>
-                <p>Our mission is to create a sustainable and transparent ecosystem where cryptocurrency and
-                    environmental
-                    conservation go hand in hand. By investing in Tree Coin, you're not just investing in a digital
-                    asset; you're investing in a greener future.</p>
-            </div>
-            <div class="about-image">
-                <img src="https://images.squarespace-cdn.com/content/v1/6197abe80515bc685501422b/4386be03-0475-409b-92db-d46055626946/Dundori+CFA+Tree+nurseries+DJI_0046.jpg"
-                    alt="Reforestation Efforts">
-            </div>
+        <h1>Invest in a Greener Future</h1>
+        <p>Tree Coin ($TREE) is a revolutionary cryptocurrency supporting global reforestation.</p>
+        <div class="cta-buttons">
+            <a href="#presale" class="btn">Buy Tree Coin</a>
+            <a href="#about" class="btn">Learn More</a>
         </div>
     </section>
 
     <!-- Presale Section -->
     <section class="presale" id="presale">
-        <div class="container">
-            <h2 class="section-title">Tree Coin Presale</h2>
-            <div class="presale-content">
-                <p>The presale for Tree Coin ($TREE) will begin on March 2nd at 0:00 AM ACST. During the presale, 1
-                    TREE will be available for 0.1 USDT.</p>
-                <div class="countdown" id="countdown"></div>
-                <a href="#" class="btn">Join the Presale</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Impact Section -->
-    <section class="impact">
-        <div class="container">
-            <h2 class="section-title">Making a Difference</h2>
-            <div class="impact-content">
-                <p>Every TREE token you hold helps fund reforestation efforts and environmental sustainability through
-                    donations to the International Tree Foundation. Together, we can make a significant impact on the
-                    health
-                    of our planet.</p>
-                <p>Join the Tree Coin community and be a part of a movement that's dedicated to creating a sustainable
-                    future for generations to come.</p>
-            </div>
+        <h2 class="section-title">Tree Coin Presale</h2>
+        <p>The presale starts on March 2nd at 0:00 AM ACST. Goal: $15,000.</p>
+        <div class="countdown" id="countdown"></div>
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
         </div>
     </section>
 
@@ -301,29 +232,34 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Countdown -->
-    <script>
-        // Countdown to Presale (March 2nd, 0:00 AM ACST)
-        function updateCountdown() {
-            const targetDate = new Date('March 2, 2025 00:00:00 GMT+0930'); // ACST
-            const currentDate = new Date();
-            const timeDifference = targetDate - currentDate;
 
-            if (timeDifference <= 0) {
-                document.getElementById('countdown').innerText = 'The presale has begun!';
+    <!-- JavaScript for Countdown & Progress Bar -->
+    <script>
+        function updateCountdown() {
+            const targetDate = new Date('March 2, 2025 00:00:00 GMT+0930');
+            const now = new Date();
+            const diff = targetDate - now;
+
+            if (diff <= 0) {
+                document.getElementById('countdown').innerText = 'Presale has begun!';
                 return;
             }
 
-            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
             document.getElementById('countdown').innerText = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+
+        function updateProgress() {
+            const progress = 0; // Set dynamically later
+            document.getElementById('progress-bar').style.width = `${progress}%`;
         }
 
         setInterval(updateCountdown, 1000);
         updateCountdown();
+        updateProgress();
     </script>
 
 </body>
